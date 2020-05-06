@@ -36,7 +36,12 @@ steps:
   inputs:
     script: 'chmod +x ./roxctl'
   
-
+- task: CmdLine@2
+  displayName: 'ls '
+  inputs:
+    script: |
+      ls
+      pwd
 - task: CmdLine@2
   displayName: 'ROX image check'
   inputs:
