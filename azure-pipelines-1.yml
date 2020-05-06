@@ -17,6 +17,10 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'export CENTRAL="52.149.254.146"'
+
+- task: CmdLine@2
+  inputs:
+    script: 'chmod +x ./roxctl'
   
 - script: ./roximagescan.sh
   displayName: 'rox image check'
