@@ -17,7 +17,9 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'export CENTRAL="52.149.254.146"'
+  
 - script: ./roximagescan.sh
   displayName: 'rox image check'
+
 - script: ./roxdeployscan.sh
   displayName: 'rox deployment check'
