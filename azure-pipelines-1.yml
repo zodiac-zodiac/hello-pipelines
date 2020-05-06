@@ -11,23 +11,41 @@ pool:
 
 steps:
 - task: CmdLine@2
+  displayName: 'Exporting API TOKEN'
   inputs:
     script: 'export ROX_API_TOKEN="eyJhbGciOiJSUzI1NiIsImtpZCI6Imp3dGswIiwidHlwIjoiSldUIn0.eyJhdWQiOlsiaHR0cHM6Ly9zdGFja3JveC5pby9qd3Qtc291cmNlcyNhcGktdG9rZW5zIl0sImV4cCI6MTYyMDMxMzczMywiaWF0IjoxNTg4Nzc3NzMzLCJpc3MiOiJodHRwczovL3N0YWNrcm94LmlvL2p3dCIsImp0aSI6IjdjZTMzYjYwLTExMjktNDlhZS1hZWFhLWY5MGU4OTE4MGZhNSIsIm5hbWUiOiJHUy1DRi1BenVyZURldk9wcyIsInJvbGUiOiJDb250aW51b3VzIEludGVncmF0aW9uIn0.d2Bosy6WA2JJFIGfj5oXVKLw-yG1IVOMlddXbR8_zMbcprh0LUlzX0rovCDdOJMXWsrpPHaZTdfaL46avtY81xkrLNbrXNMpVSlvtePQ9qJdolBW6dEYQGphENw0yw7qjKbUbNJrXG-av18oullbc9jbOlFW80ksiZ18hZzXgIJW7AbW8QOsfnksYctlOGgTNwPsFx2SCP1Xbhgvx74Cj7zqb8VLjzHcu67P3x4QyiH1Wf9jn8ibMUI_PZ1a32pudiJ2wHObPulcNX3bNKF6mrWqM2Nk8j2-j620Hz3DGnN4f8lDrw1g_TJZGMcnVJujEYRm9rZjE8hfAvJw90eHVhKMREY_QoGZKQMrqUgNOU9NO-HRqdZQOewGX60J_xHoT2g9rH2wwcAr1JYLfbtFpnfUHtthOHaKRqWZzTy4Y1nNwiwHcyiuGvEjnIrXJzx20deEpKxDSu8yGy_Ma08vFku6bS7IdY-EeTD88GpwCqW5khl7eVDEcELIb3yqfBm7i7kIomURvLlvAtQsCrDLampMD2JYT_dIGrcJd_b9dFK--fH3L46zoxpGqtHbyXFux2oKrcTf7pTq5vGVqQMqGTf2rrteJ6y0lOH8Bw9yayBg8WGcjUU0R7kdNgLD1DlbWDkUfwpCq6-TMzul73x81eKo7lVmNvg_PkOwe86jrU8"'
 
 - task: CmdLine@2
+  displayName: 'Exporting CENTRAL'
   inputs:
     script: 'export CENTRAL="52.149.254.146"'
 
+
 - task: CmdLine@2
+  displayName: 'Exporting IMAGE'
+  inputs:
+    script: 'export IMAGE="-----"'
+
+- task: CmdLine@2
+  displayName: 'Preparing the Stackrox client '
   inputs:
     script: 'curl -s -k -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Imp3dGswIiwidHlwIjoiSldUIn0.eyJhdWQiOlsiaHR0cHM6Ly9zdGFja3JveC5pby9qd3Qtc291cmNlcyNhcGktdG9rZW5zIl0sImV4cCI6MTYyMDMxMzczMywiaWF0IjoxNTg4Nzc3NzMzLCJpc3MiOiJodHRwczovL3N0YWNrcm94LmlvL2p3dCIsImp0aSI6IjdjZTMzYjYwLTExMjktNDlhZS1hZWFhLWY5MGU4OTE4MGZhNSIsIm5hbWUiOiJHUy1DRi1BenVyZURldk9wcyIsInJvbGUiOiJDb250aW51b3VzIEludGVncmF0aW9uIn0.d2Bosy6WA2JJFIGfj5oXVKLw-yG1IVOMlddXbR8_zMbcprh0LUlzX0rovCDdOJMXWsrpPHaZTdfaL46avtY81xkrLNbrXNMpVSlvtePQ9qJdolBW6dEYQGphENw0yw7qjKbUbNJrXG-av18oullbc9jbOlFW80ksiZ18hZzXgIJW7AbW8QOsfnksYctlOGgTNwPsFx2SCP1Xbhgvx74Cj7zqb8VLjzHcu67P3x4QyiH1Wf9jn8ibMUI_PZ1a32pudiJ2wHObPulcNX3bNKF6mrWqM2Nk8j2-j620Hz3DGnN4f8lDrw1g_TJZGMcnVJujEYRm9rZjE8hfAvJw90eHVhKMREY_QoGZKQMrqUgNOU9NO-HRqdZQOewGX60J_xHoT2g9rH2wwcAr1JYLfbtFpnfUHtthOHaKRqWZzTy4Y1nNwiwHcyiuGvEjnIrXJzx20deEpKxDSu8yGy_Ma08vFku6bS7IdY-EeTD88GpwCqW5khl7eVDEcELIb3yqfBm7i7kIomURvLlvAtQsCrDLampMD2JYT_dIGrcJd_b9dFK--fH3L46zoxpGqtHbyXFux2oKrcTf7pTq5vGVqQMqGTf2rrteJ6y0lOH8Bw9yayBg8WGcjUU0R7kdNgLD1DlbWDkUfwpCq6-TMzul73x81eKo7lVmNvg_PkOwe86jrU8" https://52.149.254.146/api/cli/download/roxctl-linux --output roxctl'
 
 - task: CmdLine@2
+  displayName: 'Preparing the Stackrox client II '
   inputs:
     script: 'chmod +x ./roxctl'
   
-- script: ./roximagescan.sh
-  displayName: 'rox image check'
 
-- script: ./roxdeployscan.sh
-  displayName: 'rox deployment check'
+- task: CmdLine@2
+  displayName: 'ROX image check'
+  inputs:
+    script: './roxctl image check --insecure-skip-tls-verify -e ${CENTRAL} --image ${IMAGE}'
+
+
+- task: CmdLine@2
+  displayName: 'ROX deployment check'
+  inputs:
+    script: './roxctl deployment check --insecure-skip-tls-verify -e ${CENTRAL} --file ${KUBEYAML}'
+
+  
