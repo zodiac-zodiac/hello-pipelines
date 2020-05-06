@@ -9,6 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+
 steps:
 - task: CmdLine@2
   displayName: 'Exporting API TOKEN'
@@ -24,7 +25,7 @@ steps:
 - task: CmdLine@2
   displayName: 'Exporting IMAGE'
   inputs:
-    script: 'export IMAGE="-----"'
+    script: 'export IMAGE="hello-image"'
 
 - task: CmdLine@2
   displayName: 'Preparing the Stackrox client '
@@ -36,12 +37,13 @@ steps:
   inputs:
     script: 'chmod +x ./roxctl'
   
-- task: CmdLine@2
-  displayName: 'ls '
+- task: Docker@2
+  displayName: Building image
   inputs:
-    script: |
-      ls
-      pwd
+    repository: hello-image
+    command: build
+    Dockerfile: app/Dockerfile
+
 - task: CmdLine@2
   displayName: 'ROX image check'
   inputs:
