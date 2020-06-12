@@ -14,4 +14,18 @@ steps:
   displayName: 'rox image check'
 - script: ./roxdeployscan.sh
   displayName: 'rox deployment check'
+- task: Veracode@3
+  inputs:
+    ConnectionDetailsSelection: 'Credentials'
+    apiId: '97ed43439c46457228cdac8a7ef1effd'
+    apiKey: '4a7756c68bb079ca905ad2c5006ba0531325fc6fd15b8871a7c092f467325d5c2f34fe176c0e4d7cd934aae8b7df3e8f7bc9bbbf1e500289720b7fc27cbc6b72'
+    veracodeAppProfile: 'SCA_AzureDevOps'
+    version: 'SCA_AzureDevOps'
+    filepath: '$(build.artifactstagingdirectory)'
+    createSandBox: false
+    createProfile: false
+    failTheBuildIfVeracodeScanDidNotInitiate: false
+    scanStatusCheckInterval: '60'
+    importResults: false
+    failBuildOnPolicyFail: false
 
